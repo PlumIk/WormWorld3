@@ -16,6 +16,7 @@ namespace WormWorld
         public event EventHandler<int> DayWormChanged;
         public event EventHandler<int> NewWorm;
         public event EventHandler<int> DayEnd;
+        public event EventHandler<int> EndProg;
 
         public void Start()
         {
@@ -61,6 +62,11 @@ namespace WormWorld
                 }
 
             }
+            else
+            {
+                Thread.Sleep(1000);
+                end_this();
+            }
         }
 
         public void WormDay()
@@ -84,6 +90,14 @@ namespace WormWorld
             if (NewWorm != null) 
                 NewWorm(this,NowDay);
             return NextName;
+        }
+
+        private void end_this()
+        {
+            if (EndProg != null)
+            {
+                EndProg(this, NowDay);
+            }
         }
     }
 }

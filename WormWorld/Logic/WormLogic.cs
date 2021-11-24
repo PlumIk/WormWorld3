@@ -6,13 +6,12 @@ namespace WormWorld
 {
     public class WormLogic
     {
-        
-        private int[] _point = new int[2];
 
         public int[] DoMyStep(List<FoodExample> foodAround, List<WormExample> worms, WormExample me)
         {
             int[] ret = {me.X, me.Y};
             bool[] canplace = new bool[] {true, true, true, true};
+            int[] point = new int[2];
             foreach (var one in worms)
             {
                 int i = 0;
@@ -72,18 +71,18 @@ namespace WormWorld
                 var path = Math.Abs(me.X - FoodEx.X) + Math.Abs(me.Y - FoodEx.Y);
                 if (path <= me.Life && path <= FoodEx.Life&&path<nowPath)
                 {
-                    _point[0] = FoodEx.X;
-                    _point[1] = FoodEx.Y;
+                    point[0] = FoodEx.X;
+                    point[1] = FoodEx.Y;
                     nowPath = path;
                 }
             }
             
-            if (me.X!=_point[0]||me.Y!=_point[1])
+            if (me.X!=point[0]||me.Y!=point[1])
             {
                 var find = false;
-                if (me.X != _point[0])
+                if (me.X != point[0])
                 {
-                    if (_point[0] > me.X&& canplace[0])
+                    if (point[0] > me.X&& canplace[0])
                     {
                         ret = new[] {me.X + 1, me.Y};
                         find = true;
@@ -95,9 +94,9 @@ namespace WormWorld
                     }
                 }
                 
-                if (me.Y != _point[1]&&!find)
+                if (me.Y != point[1]&&!find)
                 {
-                    if (_point[1] > me.Y&&canplace[2])
+                    if (point[1] > me.Y&&canplace[2])
                     {
                         ret = new[] {me.X , me.Y+1};
                     }

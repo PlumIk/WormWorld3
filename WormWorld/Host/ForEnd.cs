@@ -1,38 +1,31 @@
 using System;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using static System.Threading.Tasks.Task;
 
-
 namespace WormWorld
 {
-    public class FileHost : IHostedService
+    public class ForEnd: IHostedService
     {
         private readonly WorldLogic _world;
-        private const string Name = "D:/Prog/Reshotka/WormWorld3/Solution1/WormWorld/out.txt";
-
-        public FileHost(WorldLogic world)
+        private IHostApplicationLifetime _appLifetime;
+        
+        public ForEnd(WorldLogic world, IHostApplicationLifetime appLifetime)
         {
-           
-            if (!File.Exists(Name))
-            {
-                File.Create(Name);
-            }
-            File.WriteAllText(Name, "Start:\n");
             _world = world;
+            _appLifetime = appLifetime;
         }
 
         private void RunAsync()
         {
-            _world.DayEnd += (source, state) =>
+            _world.EndProg += (source, state) =>
             {
-                File.AppendAllText(Name, _world.ListOfWorm.Info()+_world.ListOfFood.Info()+"\n");
-                _world.StartDay();
+                _appLifetime.StopApplication();
             };
+            
         }
-
+        
         public Task StartAsync(CancellationToken cancellationToken)
         {
             Run(RunAsync, cancellationToken);

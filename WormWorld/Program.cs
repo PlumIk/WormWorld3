@@ -20,6 +20,7 @@ namespace WormWorld
                     services.AddHostedService<WormHost>();
                     services.AddHostedService<FileHost>();
                     services.AddHostedService<NameHost>();
+                    services.AddHostedService<ForEnd>();
                     services.AddSingleton<WorldLogic>();
                 });
     }
