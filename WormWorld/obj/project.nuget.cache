@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tESulPp5lq74n6JumEaFJpm9x5i+9TDoRAkJFVvnye6GYdN5n3PyU9Eo4Ts/QRdpGkEGvWbPii+PLtnLb1flaQ==",
+  "dgSpecHash": "cM78XNQ27RwaH9QgiZPQ+/zw9hHUoyC8diZYWZYijg/7tZ8CsvwmukwLtOJ29i38vOFSUt0LrmtXwhbFUPv+Hw==",
   "success": true,
-  "projectFilePath": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj",
+  "projectFilePath": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj",
   "expectedPackageFiles": [
     "/home/alex/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.data.sqlclient/2.0.1/microsoft.data.sqlclient.2.0.1.nupkg.sha512",

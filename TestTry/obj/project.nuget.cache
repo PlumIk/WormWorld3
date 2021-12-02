@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gn3fPV5TfsyMiCC2Is3HdJRDrLX4y1Z+h0mOvleCqjbRxbHoKRR7FN3l7EiUuhb7G/hTCatvgt9HNi0unWu1yA==",
+  "dgSpecHash": "L0yiWCT4G1ZBVPzFk4xqZOI4gnAIpaCuTAtarPZJuOgf4VQjvEnyv5Y8XNd5g9W+LJTyhnQ3CeljNmvCbqf+qA==",
   "success": true,
-  "projectFilePath": "/home/alex/Prog/Reshotka/WormWorld3/TestTry/TestTry.csproj",
+  "projectFilePath": "/home/alex/Prog/Reshotka/ForDocker/TestTry/TestTry.csproj",
   "expectedPackageFiles": [
     "/home/alex/.nuget/packages/coverlet.collector/3.0.2/coverlet.collector.3.0.2.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.codecoverage/16.9.4/microsoft.codecoverage.16.9.4.nupkg.sha512",

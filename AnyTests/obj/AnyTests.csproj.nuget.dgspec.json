@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj": {}
+    "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj": {}
   },
   "projects": {
-    "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj": {
+    "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj",
+        "projectUniqueName": "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj",
         "projectName": "AnyTests",
-        "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj",
+        "projectPath": "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj",
         "packagesPath": "/home/alex/.nuget/packages/",
-        "outputPath": "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/obj/",
+        "outputPath": "/home/alex/Prog/Reshotka/ForDocker/AnyTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/alex/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj": {
-                "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj"
+              "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj": {
+                "projectPath": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj"
               }
             }
           }
@@ -70,14 +70,14 @@
         }
       }
     },
-    "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj": {
+    "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj",
+        "projectUniqueName": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj",
         "projectName": "WormWorld",
-        "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj",
+        "projectPath": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj",
         "packagesPath": "/home/alex/.nuget/packages/",
-        "outputPath": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/obj/",
+        "outputPath": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/alex/.nuget/NuGet/NuGet.Config"

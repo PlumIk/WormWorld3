@@ -9564,11 +9564,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/alex/Prog/Reshotka/WormWorld3/TestTry/TestTry.csproj",
+      "projectUniqueName": "/home/alex/Prog/Reshotka/ForDocker/TestTry/TestTry.csproj",
       "projectName": "TestTry",
-      "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/TestTry/TestTry.csproj",
+      "projectPath": "/home/alex/Prog/Reshotka/ForDocker/TestTry/TestTry.csproj",
       "packagesPath": "/home/alex/.nuget/packages/",
-      "outputPath": "/home/alex/Prog/Reshotka/WormWorld3/TestTry/obj/",
+      "outputPath": "/home/alex/Prog/Reshotka/ForDocker/TestTry/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/alex/.nuget/NuGet/NuGet.Config"
@@ -9583,11 +9583,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj": {
-              "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/AnyTests/AnyTests.csproj"
+            "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj": {
+              "projectPath": "/home/alex/Prog/Reshotka/ForDocker/AnyTests/AnyTests.csproj"
             },
-            "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj": {
-              "projectPath": "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/WormWorld.csproj"
+            "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj": {
+              "projectPath": "/home/alex/Prog/Reshotka/ForDocker/WormWorld/WormWorld.csproj"
             }
           }
         }
