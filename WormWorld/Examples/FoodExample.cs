@@ -25,8 +25,8 @@ namespace WormWorld.Examples
             _coord[0]= inx;
             _coord[1] = iny;
         }
-        
-        public FoodExample(int inx,int iny, int life)
+
+        private FoodExample(int inx,int iny, int life)
         {
             _coord[0]= inx;
             _coord[1] = iny;

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using WormWorld.Examples;
 
-namespace WormWorld.CastomConteners
+namespace WormWorld
 {
     public class WormList
     {
-        private List<WormExample> _wormsList = new List<WormExample>();
+        private List<WormExample> _wormsList = new();
 
 
         public WormList(string name)

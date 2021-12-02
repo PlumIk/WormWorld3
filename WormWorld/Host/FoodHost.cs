@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AnyTests;
+using AnyTests.ForUnitTests.BaseIn;
 using Microsoft.Extensions.Hosting;
 using static System.Threading.Tasks.Task;
 
@@ -9,33 +12,39 @@ namespace WormWorld
     public class FoodHost: IHostedService
     {
         private WorldLogic _world;
-        private FoodLogic _logic = new FoodLogic();
+        private List<(int, int)> _foodList;
+        private int _logNum = 4;
 
         public FoodHost(WorldLogic world)
         {
+            _foodList = new ListDataGen().GenBehaviorListData();
+            new SetBehavior(new SqlBase()).GenBehavior(_foodList);
             _world = world;
         }
 
+        public FoodHost(WorldLogic world, List<(int, int)> foodList)
+        {
+            _foodList = foodList;
+            _world = world;
+        }
+
+        public void MyWork()
+        {
+            var ans = new[] {_foodList[_logNum].Item1,_foodList[_logNum].Item2};
+            _logNum++;
+            _world.ListOfFood.AddFood(ans);
+            _world.AddFood();
+            _world.WormDay();
+        }
         private void RunAsync()
         {
-            _world.DayFoodChanged += (source, state) =>
+            _logNum = 0;
+            _world.DayFoodChanged += (_,_) =>
             {
-                var ans = _logic.GetNewFood();
-                while (!_world.AddFood(ans))
-                {
-                    ans = _logic.GetNewFood();
-                }
-                _world.ListOfFood.AddFood(ans);
-                _world.WormDay();
+               MyWork();
             };
             _world.Start();
-            var ans = _logic.GetNewFood();
-            while (!_world.AddFood(ans))
-            {
-                ans = _logic.GetNewFood();
-            }
-            _world.ListOfFood.AddFood(ans);
-            _world.WormDay();
+            MyWork();
         }
         
         public Task StartAsync(CancellationToken cancellationToken)

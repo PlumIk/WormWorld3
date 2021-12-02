@@ -2,7 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WormWorld", "WormWorld\WormWorld.csproj", "{328E9BBF-67B9-4A9B-A6BF-14CE1B748B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{B37E72A9-B5F4-431A-A38E-1EFBBFE11DD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyTests", "AnyTests\AnyTests.csproj", "{627F450E-2228-40CA-AF2C-735383E764A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTry", "TestTry\TestTry.csproj", "{D20656C4-365A-42EA-ACD0-49BCE4765092}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +16,13 @@ Global
 		{328E9BBF-67B9-4A9B-A6BF-14CE1B748B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328E9BBF-67B9-4A9B-A6BF-14CE1B748B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328E9BBF-67B9-4A9B-A6BF-14CE1B748B7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B37E72A9-B5F4-431A-A38E-1EFBBFE11DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B37E72A9-B5F4-431A-A38E-1EFBBFE11DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B37E72A9-B5F4-431A-A38E-1EFBBFE11DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B37E72A9-B5F4-431A-A38E-1EFBBFE11DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{627F450E-2228-40CA-AF2C-735383E764A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{627F450E-2228-40CA-AF2C-735383E764A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{627F450E-2228-40CA-AF2C-735383E764A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{627F450E-2228-40CA-AF2C-735383E764A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D20656C4-365A-42EA-ACD0-49BCE4765092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D20656C4-365A-42EA-ACD0-49BCE4765092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D20656C4-365A-42EA-ACD0-49BCE4765092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D20656C4-365A-42EA-ACD0-49BCE4765092}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

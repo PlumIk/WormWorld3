@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using WormWorld.Examples;
 
-namespace WormWorld.CastomConteners
+namespace WormWorld
 {
     public class FoodList
     {

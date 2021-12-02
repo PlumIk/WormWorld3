@@ -11,7 +11,7 @@ namespace WormWorld
     public class WormHost: IHostedService
     {
         private WorldLogic _world;
-        private WormLogic _logic = new WormLogic();
+        private WormLogic _logic = new();
 
         public WormHost(WorldLogic world)
         {
@@ -52,12 +52,16 @@ namespace WormWorld
             _world.ListOfWorm.AccList(worms);
         }
 
+        public void MyWork()
+        {
+            DoSteps();
+            _world.EndDay();
+        }
         private void RunAsync()
         {
-            _world.DayWormChanged += (source, state) =>
+            _world.DayWormChanged += (_, _) =>
             {
-                DoSteps();
-               _world.EndDay();
+                MyWork();
             };
         }
 

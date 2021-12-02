@@ -29,7 +29,8 @@ namespace WormWorld.Examples
             Y = y;
             Name = inName;
         }
-        public WormExample(int x, int y, string inName, int life)
+
+        private WormExample(int x, int y, string inName, int life)
         {
             X = x;
             Y = y;

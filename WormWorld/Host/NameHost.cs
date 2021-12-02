@@ -8,7 +8,7 @@ namespace WormWorld
 {
     public class NameHost: IHostedService
     {
-        private NameLogic _logic = new NameLogic();
+        private NameLogic _logic = new();
         private readonly WorldLogic _world;
         
         public NameHost(WorldLogic world)
@@ -17,11 +17,16 @@ namespace WormWorld
             _world.NextName= _logic.GetName();
         }
 
+        public void MyWork()
+        {
+            _world.NextName = _logic.GetName();
+        }
+
         private void RunAsync()
         {
-            _world.NewWorm += (source, state) =>
+            _world.NewWorm += (_, _) =>
             {
-                _world.NextName = _logic.GetName();
+                MyWork();
             };
             
         }

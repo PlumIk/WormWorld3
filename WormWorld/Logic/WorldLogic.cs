@@ -1,6 +1,6 @@
 using System;
+using System.Linq;
 using System.Threading;
-using WormWorld.CastomConteners;
 
 namespace WormWorld
 {
@@ -8,9 +8,9 @@ namespace WormWorld
     {
         public int NowDay = 0;
 
-        public FoodList ListOfFood = new FoodList();
+        public FoodList ListOfFood = new();
         public WormList ListOfWorm;
-        public String NextName;
+        public string NextName;
 
         public event EventHandler<int> DayFoodChanged;
         public event EventHandler<int> DayWormChanged;
@@ -27,77 +27,54 @@ namespace WormWorld
         public bool DoStep(int[] wormCoord)
         {
             var worms = ListOfWorm.GetList();
-            foreach (var one in worms)
-            {
-                if (one.X == wormCoord[0] && one.Y == wormCoord[1])
-                {
-                    return false;
-                }
-            }
-            return true;
+            return worms.All(one => one.X != wormCoord[0] || one.Y != wormCoord[1]);
         }
-        public bool AddFood(int[] foodCoord)
+        public void AddFood()
         {
-            var worms = ListOfWorm.GetList();
-            foreach (var one in worms)
-            {
-                if (one.X == foodCoord[0] && one.Y == foodCoord[1])
-                {
-                    one.Eat();
-                    ListOfWorm.AccList(worms);
-                    return false;
-                }
-            }
-
-            return true;
+            TryToEat();
         }
         public void StartDay()
         {
-            if (NowDay < 100)
+            if (NowDay < 99)
             {
                 NowDay++;
-                if (DayFoodChanged != null)
-                {
-                    DayFoodChanged(this, NowDay);
-                }
+                DayFoodChanged?.Invoke(this, NowDay);
 
             }
             else
             {
                 Thread.Sleep(1000);
-                end_this();
+                EndThis();
             }
         }
 
         public void WormDay()
         {
-            if (DayWormChanged != null)
-            {
-                DayWormChanged(this, NowDay);
-            }
+            TryToEat();
+            DayWormChanged?.Invoke(this, NowDay);
+        }
+
+        private void TryToEat()
+        {
+            ListOfFood.Acc(ListOfWorm.Eat(ListOfFood.GetList()));
         }
         public void EndDay()
         {
-            ListOfFood.Acc(ListOfWorm.Eat(ListOfFood.GetList()));
+            TryToEat();
             ListOfFood.IsDie();
             ListOfWorm.IsDie();
-            if (DayEnd != null) 
-                DayEnd(this,NowDay);
-        }
+            DayEnd?.Invoke(this,NowDay);
+        } 
 
-        public String GenName()
+        public string GenName()
         {
-            if (NewWorm != null) 
-                NewWorm(this,NowDay);
+            NewWorm?.Invoke(this,NowDay);
             return NextName;
         }
 
-        private void end_this()
+        private void EndThis()
         {
-            if (EndProg != null)
-            {
-                EndProg(this, NowDay);
-            }
+            EndProg?.Invoke(this, NowDay);
         }
     }
 }

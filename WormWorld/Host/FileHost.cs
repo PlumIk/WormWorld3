@@ -11,11 +11,23 @@ namespace WormWorld
     public class FileHost : IHostedService
     {
         private readonly WorldLogic _world;
-        private const string Name = "D:/Prog/Reshotka/WormWorld3/Solution1/WormWorld/out.txt";
+        private string Name = "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/";
+        //private const string Name = "D:/Prog/Reshotka/WormWorld3/Solution1/WormWorld/out.txt";
 
+        
+        public FileHost(WorldLogic world, string also)
+        {
+            Name += also + "out.txt";
+            if (!File.Exists(Name))
+            {
+                File.Create(Name);
+            }
+            File.WriteAllText(Name, "Start:\n");
+            _world = world;
+        }
         public FileHost(WorldLogic world)
         {
-           
+            Name += "out.txt";
             if (!File.Exists(Name))
             {
                 File.Create(Name);
@@ -24,12 +36,26 @@ namespace WormWorld
             _world = world;
         }
 
+        public void MyWork()
+        {
+            File.AppendAllText(Name, "Day "+(_world.NowDay+1)+":"+_world.ListOfWorm.Info()+_world.ListOfFood.Info()+"\n");
+            _world.StartDay();
+        }
+
+        public void End()
+        {
+            File.AppendAllText(Name, "Total Worms = " + _world.ListOfWorm.GetList().Count);
+        }
+
         private void RunAsync()
         {
-            _world.DayEnd += (source, state) =>
+            _world.DayEnd += (_, _) =>
             {
-                File.AppendAllText(Name, _world.ListOfWorm.Info()+_world.ListOfFood.Info()+"\n");
-                _world.StartDay();
+                MyWork();
+            };
+            _world.EndProg += (_, _) =>
+            {
+                End();
             };
         }
 

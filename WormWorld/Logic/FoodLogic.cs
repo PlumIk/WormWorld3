@@ -18,8 +18,8 @@ namespace WormWorld
             ret[1] = NextNormal();
             return ret;
         }
-        
-        public int NextNormal( double mu = 0, double sigma = 5)
+
+        private int NextNormal( double mu = 0, double sigma = 5)
         {
 
             var u1 = _r.NextDouble();

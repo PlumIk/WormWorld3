@@ -19,7 +19,7 @@ namespace WormWorld
 
         private void RunAsync()
         {
-            _world.EndProg += (source, state) =>
+            _world.EndProg += (_,_) =>
             {
                 _appLifetime.StopApplication();
             };
