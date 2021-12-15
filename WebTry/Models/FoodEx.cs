@@ -1,8 +1,8 @@
-namespace WebTry.Models
+namespace WebTry
 {
     public class FoodEx
     {
-        public int expiresIn { set; get; }
+        public int expiresin { set; get; }
         public PositionEx position { set; get; }
         
     }

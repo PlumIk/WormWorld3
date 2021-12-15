@@ -8,7 +8,11 @@
     ".NETCoreApp,Version=v5.0": {
       "AnyTests/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "Microsoft.Extensions.Http": "6.0.0",
+          "Refit": "6.1.15",
           "System.Data.SqlClient": "4.8.3",
           "WormWorld": "1.0.0"
         },
@@ -122,6 +126,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/5.0.12": {},
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.12": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "5.0.12.0",
+            "fileVersion": "5.0.1221.51310"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.12",
@@ -365,6 +380,20 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Extensions.Http/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
           }
@@ -651,6 +680,17 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {
             "assemblyVersion": "10.0.0.0",
             "fileVersion": "10.0.1.20720"
+          }
+        }
+      },
+      "Refit/6.1.15": {
+        "dependencies": {
+          "System.Net.Http.Json": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Refit.dll": {
+            "assemblyVersion": "6.1.0.0",
+            "fileVersion": "6.1.15.55653"
           }
         }
       },
@@ -998,6 +1038,7 @@
         }
       },
       "System.Memory/4.5.4": {},
+      "System.Net.Http.Json/5.0.0": {},
       "System.Net.NameResolution/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -1436,9 +1477,12 @@
       },
       "WormWorld/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
           "Microsoft.Extensions.Hosting": "6.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Refit": "6.1.15",
           "System.Data.SqlClient": "4.8.3"
         },
         "runtime": {
@@ -1494,6 +1538,13 @@
       "sha512": "sha512-MTxvfKtEeQN5E5fBJO/jNfBdcKqw///Pro4uI2o0q8ukMaLsff4TgC8cfPBtzkz6wh55z0b4kldUv2r34Ix3sg==",
       "path": "microsoft.entityframeworkcore.analyzers/5.0.12",
       "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.12.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bnmyVPMWFM0Olt5K0r2aWhkVb1fg3iiqO12mq786pTHxyjnH40C+GTRG2LS7k69lAPkkuj1iRHkqwN9oJtcqMw==",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.12",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.5.0.12.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
       "type": "package",
@@ -1627,6 +1678,13 @@
       "sha512": "sha512-GcT5l2CYXL6Sa27KCSh0TixsRfADUgth+ojQSD5EkzisZxmGFh7CwzkcYuGwvmXLjr27uWRNrJ2vuuEjMhU05Q==",
       "path": "microsoft.extensions.hosting.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Http/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-15+pa2G0bAMHbHewaQIdr/y6ag2H3yh4rd9hTXavtWDzQBkvpe2RMqFg8BxDpcQWssmjmBApGPcw93QRz6YcMg==",
+      "path": "microsoft.extensions.http/6.0.0",
+      "hashPath": "microsoft.extensions.http.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/6.0.0": {
       "type": "package",
@@ -1774,6 +1832,13 @@
       "sha512": "sha512-ebWzW9j2nwxQeBo59As2TYn7nYr9BHicqqCwHOD1Vdo+50HBtLPuqdiCYJcLdTRknpYis/DSEOQz5KmZxwrIAg==",
       "path": "newtonsoft.json/10.0.1",
       "hashPath": "newtonsoft.json.10.0.1.nupkg.sha512"
+    },
+    "Refit/6.1.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-T1qNkTmPvSsPxhZMvzTySdx9c0Zr87DAXFMSx3rK2RxBInzcPz+9qJPVkkF28/9Dn9TTpp9vN6Sn5Hhms837fQ==",
+      "path": "refit/6.1.15",
+      "hashPath": "refit.6.1.15.nupkg.sha512"
     },
     "runtime.native.System/4.3.0": {
       "type": "package",
@@ -2005,6 +2070,13 @@
       "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "path": "system.memory/4.5.4",
       "hashPath": "system.memory.4.5.4.nupkg.sha512"
+    },
+    "System.Net.Http.Json/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3CPSQpCzEmI9o+1G79TnPCjF40omCdnoXj2Rg76BDwGj5+LZnFPjV+t35eedlvl+uthmholk/XXxXTYgJWSexw==",
+      "path": "system.net.http.json/5.0.0",
+      "hashPath": "system.net.http.json.5.0.0.nupkg.sha512"
     },
     "System.Net.NameResolution/4.3.0": {
       "type": "package",

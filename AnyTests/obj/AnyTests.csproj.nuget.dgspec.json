@@ -42,9 +42,25 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.12, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[6.1.15, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -104,6 +120,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.12, )"
@@ -115,6 +139,10 @@
             "Microsoft.Extensions.Hosting.Abstractions": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[6.1.15, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

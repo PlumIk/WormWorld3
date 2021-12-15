@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using WebTry.Models;
 
 namespace WebTry.Controllers
 {
@@ -25,14 +24,46 @@ namespace WebTry.Controllers
  
         // POST api/users
         [HttpPost]
-        public InfoForServer Post([FromRoute] string wormName, [FromBody] InfoFromServerEx infoForServer)
+        public InfoFromServerEx Post([FromRoute] string wormName, [FromBody] InfoForServerEx infoForServer)
         {
-            Console.WriteLine( infoForServer.food.Length);
-            Console.WriteLine( infoForServer.worms[0].name);
+            List<WormExample> worms = new List<WormExample>();
+            List<FoodExample> food = new List<FoodExample>();
+            WormExample me=null;
+            
+            
+            foreach (var one in infoForServer.worms)
+            {
+                WormExample toAdd = new WormExample(one.position.x, one.position.y, one.name, one.lifeStrength);
+                if (wormName == toAdd.Name)
+                {
+                    me = toAdd;
+                }
+                worms.Add(toAdd);
+            }
+            
+            foreach (var one in infoForServer.food)
+            {
+                FoodExample toAdd = new FoodExample(one.position.x, one.position.y,one.expiresin);
+                food.Add(toAdd);
+            }
+
+            if (me is null)
+            {
+                return null;
+            }
+            var acc = new WormLogic().DoMyStep(food, worms, me);
             var a = new ActionEx();
-            a.direction = "Up";
-            a.split = false;
-            return new InfoForServer(a);
+            a.split = acc.Length == 3;
+
+            if (me.X != acc[0])
+            {
+                a.direction = acc[0] > me.X ? "Right" : "Left";
+            }
+            else
+            {
+                a.direction = acc[1] > me.Y ? "Up" : "Down";
+            }
+            return new InfoFromServerEx(a);
         }
         
         

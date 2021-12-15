@@ -11,7 +11,7 @@ namespace WormWorld
     public class FileHost : IHostedService
     {
         private readonly WorldLogic _world;
-        private string Name = "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/";
+        private string Name = "/home/alex/Prog/Reshotka/ForDocker/WormWorld/";
         //private const string Name = "D:/Prog/Reshotka/WormWorld3/Solution1/WormWorld/out.txt";
 
         

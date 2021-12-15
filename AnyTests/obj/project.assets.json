@@ -116,6 +116,18 @@
           "lib/netstandard2.0/_._": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/5.0.12": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
         "type": "package",
         "dependencies": {
@@ -402,6 +414,21 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Http/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/6.0.0": {
@@ -743,6 +770,22 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Refit/6.1.15": {
+        "type": "package",
+        "dependencies": {
+          "System.Net.Http.Json": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Refit.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Refit.dll": {}
+        },
+        "build": {
+          "buildTransitive/netstandard2.0/refit.props": {},
+          "buildTransitive/netstandard2.0/refit.targets": {}
         }
       },
       "runtime.native.System/4.3.0": {
@@ -1239,6 +1282,15 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Net.Http.Json/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/System.Net.Http.Json.dll": {}
         }
       },
       "System.Net.NameResolution/4.3.0": {
@@ -1955,9 +2007,12 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.InMemory": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
           "Microsoft.Extensions.Hosting": "6.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Refit": "6.1.15",
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
@@ -2159,6 +2214,20 @@
         "lib/netstandard2.0/_._",
         "microsoft.entityframeworkcore.analyzers.5.0.12.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/5.0.12": {
+      "sha512": "bnmyVPMWFM0Olt5K0r2aWhkVb1fg3iiqO12mq786pTHxyjnH40C+GTRG2LS7k69lAPkkuj1iRHkqwN9oJtcqMw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/5.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/netstandard2.1/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.5.0.12.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/5.0.12": {
@@ -2547,6 +2616,25 @@
         "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.xml",
         "microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.hosting.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Http/6.0.0": {
+      "sha512": "15+pa2G0bAMHbHewaQIdr/y6ag2H3yh4rd9hTXavtWDzQBkvpe2RMqFg8BxDpcQWssmjmBApGPcw93QRz6YcMg==",
+      "type": "package",
+      "path": "microsoft.extensions.http/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Http.dll",
+        "lib/net461/Microsoft.Extensions.Http.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.xml",
+        "microsoft.extensions.http.6.0.0.nupkg.sha512",
+        "microsoft.extensions.http.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -3071,6 +3159,31 @@
         "newtonsoft.json.10.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "Refit/6.1.15": {
+      "sha512": "T1qNkTmPvSsPxhZMvzTySdx9c0Zr87DAXFMSx3rK2RxBInzcPz+9qJPVkkF28/9Dn9TTpp9vN6Sn5Hhms837fQ==",
+      "type": "package",
+      "path": "refit/6.1.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/roslyn3.8/cs/InterfaceStubGeneratorV1.dll",
+        "analyzers/dotnet/roslyn4.0/cs/InterfaceStubGeneratorV2.dll",
+        "build/netstandard2.0/refit.targets",
+        "buildTransitive/netstandard2.0/refit.props",
+        "buildTransitive/netstandard2.0/refit.targets",
+        "lib/net461/Refit.dll",
+        "lib/net461/Refit.xml",
+        "lib/net5.0/Refit.dll",
+        "lib/net5.0/Refit.xml",
+        "lib/netstandard2.0/Refit.dll",
+        "lib/netstandard2.0/Refit.xml",
+        "lib/netstandard2.1/Refit.dll",
+        "lib/netstandard2.1/Refit.xml",
+        "refit.6.1.15.nupkg.sha512",
+        "refit.nuspec",
+        "refit_logo.png"
       ]
     },
     "runtime.native.System/4.3.0": {
@@ -4615,6 +4728,28 @@
         "ref/netcoreapp2.1/_._",
         "system.memory.4.5.4.nupkg.sha512",
         "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Net.Http.Json/5.0.0": {
+      "sha512": "3CPSQpCzEmI9o+1G79TnPCjF40omCdnoXj2Rg76BDwGj5+LZnFPjV+t35eedlvl+uthmholk/XXxXTYgJWSexw==",
+      "type": "package",
+      "path": "system.net.http.json/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Net.Http.Json.dll",
+        "lib/net461/System.Net.Http.Json.xml",
+        "lib/net5.0/System.Net.Http.Json.dll",
+        "lib/net5.0/System.Net.Http.Json.xml",
+        "lib/netstandard2.0/System.Net.Http.Json.dll",
+        "lib/netstandard2.0/System.Net.Http.Json.xml",
+        "system.net.http.json.5.0.0.nupkg.sha512",
+        "system.net.http.json.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -6940,7 +7075,11 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.EntityFrameworkCore >= 5.0.12",
+      "Microsoft.EntityFrameworkCore.InMemory >= 5.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.12",
+      "Microsoft.Extensions.Http >= 6.0.0",
+      "Refit >= 6.1.15",
       "System.Data.SqlClient >= 4.8.3",
       "WormWorld >= 1.0.0"
     ]
@@ -6986,9 +7125,25 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.12, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[5.0.12, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[5.0.12, )"
+          },
+          "Microsoft.Extensions.Http": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "Refit": {
+            "target": "Package",
+            "version": "[6.1.15, )"
           },
           "System.Data.SqlClient": {
             "target": "Package",

@@ -1,8 +1,13 @@
-namespace WebTry.Models
+namespace WebTry
 {
     public class InfoFromServerEx
     {
-        public WormsEx[] worms { set; get; }
-        public FoodEx[] food { set; get; }
+        public ActionEx action { set; get; }
+        
+        public InfoFromServerEx(){}
+        public InfoFromServerEx(ActionEx inac)
+        {
+            action = inac;
+        }
     }
 }

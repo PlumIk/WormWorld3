@@ -8,14 +8,15 @@ namespace AnyTests.ForUnitTests.BaseIn
         {
             public DbSet<Entity> Sets { get; set; }
          
-            public ApplicationContext()
+            public ApplicationContext(DbContextOptions options) : base(options)
             {
                 Database.EnsureCreated();
             }
  
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-                optionsBuilder.UseSqlServer("Server=localhost;Database=ForWorms;User Id=SA;Password=Sasha353!;");
+                if(!optionsBuilder.IsConfigured)
+                    optionsBuilder.UseSqlServer("Server=localhost;Database=ForWorms;User Id=SA;Password=Sasha353!;");
             }
         }
     }

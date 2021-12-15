@@ -11,6 +11,7 @@ namespace WormWorld
     public class WormHost: IHostedService
     {
         private WorldLogic _world;
+        private INetworkService _networkService = new NetworkServiceFactory().GetNetworkService("http://localhost:5001/api","localhost",5001);
         private WormLogic _logic = new();
 
         public WormHost(WorldLogic world)
@@ -24,23 +25,45 @@ namespace WormWorld
             var newWorms =new List<WormExample>();
             foreach (var one in worms)
             {
-                var ans = _logic.DoMyStep(_world.ListOfFood.GetList(),
-                    _world.ListOfWorm.GetList(), one);
-                if (ans.Length == 2)
+                InfoForServerEx infoForServer = new ListsToInfo().Get(_world.ListOfFood.GetList(),_world.ListOfWorm.GetList());
+                var response = _networkService.GetWormAction(one.Name, infoForServer);
+                var infoFromServer = response.Result;
+                int[] acc = new int[]{one.X,one.Y};
+                if (infoFromServer.action.direction == "Up")
                 {
-                    if (_world.DoStep(ans))
-                    {
-                        one.AcStep(ans);
-                    }
+                    acc[1]++;
+                }else if (infoFromServer.action.direction == "Down")
+                {
+                    acc[1]--;
+                }else if (infoFromServer.action.direction == "Right")
+                {
+                    acc[0]++;
+                }else if (infoFromServer.action.direction == "Left")
+                {
+                    acc[0]--;
+                }
+
+                if (infoFromServer.action.split)
+                {
+                    one.Life -= 10;
                 }
                 else
                 {
-                    if (_world.DoStep(ans))
-                    {
-                        newWorms.Add(new WormExample(ans[0], ans[1], _world.GenName()));
-                    }
+                    one.Life--;
                 }
 
+                if (_world.DoStep(acc))
+                {
+                    if (infoFromServer.action.split)
+                    {
+                        newWorms.Add(new WormExample(acc[0],acc[1],_world.GenName()));
+                    }
+                    else
+                    {
+                        one.AcStep(acc);
+                    }
+                }
+                
                 _world.ListOfWorm.AccList(worms);
             }
 

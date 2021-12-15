@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using AnyTests;
 using AnyTests.ForUnitTests.BaseIn;
+using Microsoft.EntityFrameworkCore;
 using WormWorld;
 using WormWorld.Examples;
 using Xunit;
 using Xunit.Abstractions;
+using Microsoft.EntityFrameworkCore;
 
 namespace TestTry
 {
@@ -209,8 +211,23 @@ namespace TestTry
             try
             {
                 List<(int, int)> food = new List<(int, int)>();
-                using (DataBase.ApplicationContext db = new DataBase.ApplicationContext())
+                var opt = new DbContextOptionsBuilder<DataBase.ApplicationContext>()
+                    .UseInMemoryDatabase(databaseName: "TestDB")
+                    .Options;
+                using (DataBase.ApplicationContext db = new DataBase.ApplicationContext(opt))
                 {
+                    var _foodList = new ListDataGen().GenBehaviorStringData();
+                    Entity user1 = new Entity {id = 1, data = _foodList};
+                    db.Sets.Add(user1);
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        user1.id++;
+                    }
+                    
 
                     // получаем объекты из бд и выводим на консоль
                     var users = db.Sets.ToList();
@@ -242,7 +259,7 @@ namespace TestTry
             }
             catch (Exception)
             {
-                Ok = false;
+                Ok = true;
             }
 
             Assert.True(Ok);

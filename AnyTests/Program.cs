@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Security;
 using System.Threading.Tasks;
 using AnyTests.ForUnitTests.BaseIn;
 
@@ -9,11 +12,31 @@ namespace AnyTests
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-
-           
+            new worker().dod();
             
+             /*
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) =>
+            {
+                // local dev, just approve all certs
+                return errors == SslPolicyErrors.None ;
+            };
+            string url = "https://localhost:5001/api/John/getAction/";
+            var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpRequest.Method = "GET";
+            httpRequest.ContentType = "application/json";
+            using (var httpResponse = httpRequest.GetResponse())
+            using (var responseStream = httpResponse.GetResponseStream())
+            using (var reader = new StreamReader(responseStream))
+            {
+                string response = reader.ReadToEnd();
+                Console.WriteLine(response);
+            }
+    
+*/
+
+            /*
             using (DataBase.ApplicationContext db = new DataBase.ApplicationContext())
             {
                 // создаем два объекта User
@@ -44,6 +67,7 @@ namespace AnyTests
                     Console.WriteLine($"{u.id}.{u.data} ");
                 }
             }
+            */
             /*
             var a = new SetBehavior(new SqlBase());
             a.GenBehavior(1);

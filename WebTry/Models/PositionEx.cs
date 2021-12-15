@@ -1,4 +1,4 @@
-namespace WebTry.Models
+namespace WebTry
 {
     public class PositionEx
     {
