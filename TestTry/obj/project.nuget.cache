@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Gn3fPV5TfsyMiCC2Is3HdJRDrLX4y1Z+h0mOvleCqjbRxbHoKRR7FN3l7EiUuhb7G/hTCatvgt9HNi0unWu1yA==",
+  "dgSpecHash": "yF4t8DJngpUBS+e7HIt8y38dWnvf22BLLTwDS6gTQsmnGDuwSSTWD6dwtWgHl9fl7xPDAK4+TPSaD/EEAWkeIA==",
   "success": true,
   "projectFilePath": "/home/alex/Prog/Reshotka/WormWorld3/TestTry/TestTry.csproj",
   "expectedPackageFiles": [
@@ -9,9 +9,10 @@
     "/home/alex/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.data.sqlclient/2.0.1/microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.0.1/microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
-    "/home/alex/.nuget/packages/microsoft.entityframeworkcore/5.0.12/microsoft.entityframeworkcore.5.0.12.nupkg.sha512",
-    "/home/alex/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.12/microsoft.entityframeworkcore.abstractions.5.0.12.nupkg.sha512",
-    "/home/alex/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.12/microsoft.entityframeworkcore.analyzers.5.0.12.nupkg.sha512",
+    "/home/alex/.nuget/packages/microsoft.entityframeworkcore/5.0.13/microsoft.entityframeworkcore.5.0.13.nupkg.sha512",
+    "/home/alex/.nuget/packages/microsoft.entityframeworkcore.abstractions/5.0.13/microsoft.entityframeworkcore.abstractions.5.0.13.nupkg.sha512",
+    "/home/alex/.nuget/packages/microsoft.entityframeworkcore.analyzers/5.0.13/microsoft.entityframeworkcore.analyzers.5.0.13.nupkg.sha512",
+    "/home/alex/.nuget/packages/microsoft.entityframeworkcore.inmemory/5.0.13/microsoft.entityframeworkcore.inmemory.5.0.13.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.entityframeworkcore.relational/5.0.12/microsoft.entityframeworkcore.relational.5.0.12.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.entityframeworkcore.sqlserver/5.0.12/microsoft.entityframeworkcore.sqlserver.5.0.12.nupkg.sha512",
     "/home/alex/.nuget/packages/microsoft.extensions.caching.abstractions/5.0.0/microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
