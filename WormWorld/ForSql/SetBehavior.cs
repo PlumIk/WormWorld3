@@ -20,9 +20,10 @@ namespace AnyTests
         {
             string getId = "SELECT MAX(id) FROM FoodList";
             SqlDataReader reader = _sql.ExecuteCommand(getId);
-            var lid=1;
+            var lid=0;
             if (reader.HasRows) // если есть данные
             {
+                
                 while (reader.Read()) // построчно считываем данные
                 {
                     lid = Convert.ToInt32( reader.GetValue(0));

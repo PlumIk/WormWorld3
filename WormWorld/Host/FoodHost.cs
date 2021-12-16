@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AnyTests;
 using AnyTests.ForUnitTests.BaseIn;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using static System.Threading.Tasks.Task;
 
@@ -13,18 +15,49 @@ namespace WormWorld
     {
         private WorldLogic _world;
         private List<(int, int)> _foodList;
-        private int _logNum = 4;
+        private int _logNum = 0;
 
         public FoodHost(WorldLogic world)
         {
             _foodList = new ListDataGen().GenBehaviorListData();
-            new SetBehavior(new SqlBase()).GenBehavior(_foodList);
+            
+            var opt = new DbContextOptionsBuilder<DataBase.ApplicationContext>().Options;
+            using (DataBase.ApplicationContext db = new DataBase.ApplicationContext(opt))
+            {
+
+                Entity user1 = new Entity { id = 1, data = new ListDataGen().GenBehaviorStringData(_foodList)};
+
+                // добавляем их в бд
+                db.FoodList.Add(user1);
+                bool cantSave = true;
+                while (cantSave)
+                {
+                    try
+                    {
+                        db.SaveChanges();
+                        cantSave = false;
+                    }
+                    catch (Exception e)
+                    {
+                        user1.id++;
+                    }
+                }
+            }
             _world = world;
+
         }
 
-        public FoodHost(WorldLogic world, List<(int, int)> foodList)
+        public FoodHost(WorldLogic world, DataBase.ApplicationContext db)
         {
-            _foodList = foodList;
+            List<(int, int)> food = new List<(int, int)>();
+            var users = db.FoodList.ToList();
+            string[] values = users[0].data.ToString().Split('^');
+            foreach (var one in values)
+            {
+                string[] XY = one.Split(',');
+                food.Add((Convert.ToInt32(XY[0]), Convert.ToInt32(XY[1])));
+            }
+            _foodList = food;
             _world = world;
         }
 

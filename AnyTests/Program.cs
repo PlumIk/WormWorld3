@@ -14,36 +14,6 @@ namespace AnyTests
 
            
             
-            using (DataBase.ApplicationContext db = new DataBase.ApplicationContext())
-            {
-                // создаем два объекта User
-                Entity user1 = new Entity { id = 1, data = new ListDataGen().GenBehaviorStringData() };
-
-                // добавляем их в бд
-                db.Sets.Add(user1);
-                bool cantSave = true;
-                while (cantSave)
-                {
-                    try
-                    {
-                        db.SaveChanges();
-                        cantSave = false;
-                    }
-                    catch (Exception e)
-                    {
-                        user1.id++;
-                    }
-                }
-                Console.WriteLine("Объекты успешно сохранены");
- 
-                // получаем объекты из бд и выводим на консоль
-                var users = db.Sets.ToList();
-                Console.WriteLine("Список объектов:");
-                foreach (Entity u in users)
-                {
-                    Console.WriteLine($"{u.id}.{u.data} ");
-                }
-            }
             /*
             var a = new SetBehavior(new SqlBase());
             a.GenBehavior(1);
