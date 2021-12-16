@@ -209,42 +209,26 @@ namespace TestTry
             bool Ok = true;
             try
             {
-                var opt = new DbContextOptionsBuilder<DataBase.ApplicationContext>()
-                    .UseInMemoryDatabase(databaseName: "TestDB")
-                    .Options;
-                using (DataBase.ApplicationContext db = new DataBase.ApplicationContext(opt))
-                {
-                    var _foodList = "-5,4^-4,5^-3,1^-2,6^11,-5^4,1^-3,5^2,-8^1,-2^3,1^-3,-4^7,3^-2,0^-10,0^-1,0^-3,2^1,-3^-3,-3^7,-8^6,-1^13,3^-14,-4^9,1^-3,-10^6,5^-4,-6^6,-11^-2,0^-2,-1^0,-5^2,-4^4,-1^-8,5^-3,1^-2,-3^-5,-5^2,6^-4,0^-8,-10^-3,-5^-7,1^-2,11^3,5^1,3^5,-2^0,-7^1,5^3,-3^-1,2^11,-3^1,1^-3,-8^1,0^-1,3^3,5^-6,12^-3,1^0,0^-5,6^-9,-1^1,5^5,-2^1,1^5,0^4,4^2,6^-4,-4^5,-8^1,6^-3,5^0,8^2,-4^-5,1^8,-5^-1,-7^-2,5^1,-8^-5,5^2,-2^4,-2^13,-4^-2,-4^3,0^-4,-1^1,-5^6,-2^-5,1^-7,-2^2,-1^2,-6^-8,0^3,6^-3,-2^14,5^3,-3^14,-6^-3,3^0,2^-9,-3^3,3";
-                    Entity user1 = new Entity {id = 1, data = _foodList};
-                    db.FoodList.Add(user1);
-                    try
-                    {
-                        db.SaveChanges();
-                    }
-                    catch (Exception e)
-                    {
-                        user1.id++;
-                    }
-                    
-                    var world = new WorldLogic();
-                    var logger = new FileHost(world, "test");
-                    var fooder = new FoodHost(world, db);
-                    var namer = new NameHost(world);
-                    var wormer = new WormHost(world);
-                    world.Start();
-                    world.NextName = "Sirus";
-                    while (world.NowDay < 99)
-                    {
-                        namer.MyWork();
-                        fooder.MyWork();
-                        wormer.MyWork();
-                        logger.MyWork();
-                        world.NowDay++;
-                    }
 
-                    logger.End();
+                var _foodList =
+                    "-5,4^-4,5^-3,1^-2,6^11,-5^4,1^-3,5^2,-8^1,-2^3,1^-3,-4^7,3^-2,0^-10,0^-1,0^-3,2^1,-3^-3,-3^7,-8^6,-1^13,3^-14,-4^9,1^-3,-10^6,5^-4,-6^6,-11^-2,0^-2,-1^0,-5^2,-4^4,-1^-8,5^-3,1^-2,-3^-5,-5^2,6^-4,0^-8,-10^-3,-5^-7,1^-2,11^3,5^1,3^5,-2^0,-7^1,5^3,-3^-1,2^11,-3^1,1^-3,-8^1,0^-1,3^3,5^-6,12^-3,1^0,0^-5,6^-9,-1^1,5^5,-2^1,1^5,0^4,4^2,6^-4,-4^5,-8^1,6^-3,5^0,8^2,-4^-5,1^8,-5^-1,-7^-2,5^1,-8^-5,5^2,-2^4,-2^13,-4^-2,-4^3,0^-4,-1^1,-5^6,-2^-5,1^-7,-2^2,-1^2,-6^-8,0^3,6^-3,-2^14,5^3,-3^14,-6^-3,3^0,2^-9,-3^3,3";
+                var world = new WorldLogic();
+                var logger = new FileHost(world, "test");
+                var fooder = new FoodHost(world, _foodList);
+                var namer = new NameHost(world);
+                var wormer = new WormHost(world);
+                world.Start();
+                world.NextName = "Sirus";
+                while (world.NowDay < 99)
+                {
+                    namer.MyWork();
+                    fooder.MyWork();
+                    wormer.MyWork();
+                    logger.MyWork();
+                    world.NowDay++;
                 }
-                
+
+                logger.End();
             }
             catch (Exception)
             {

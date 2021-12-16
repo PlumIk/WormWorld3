@@ -24,11 +24,8 @@ namespace WormWorld
             var opt = new DbContextOptionsBuilder<DataBase.ApplicationContext>().Options;
             using (DataBase.ApplicationContext db = new DataBase.ApplicationContext(opt))
             {
-
-                Entity user1 = new Entity { id = 1, data = new ListDataGen().GenBehaviorStringData(_foodList)};
-
-                // добавляем их в бд
-                db.FoodList.Add(user1);
+                Entity data = new Entity { id = 1, data = new ListDataGen().GenBehaviorStringData(_foodList)};
+                db.FoodList.Add(data);
                 bool cantSave = true;
                 while (cantSave)
                 {
@@ -39,7 +36,7 @@ namespace WormWorld
                     }
                     catch (Exception e)
                     {
-                        user1.id++;
+                        data.id++;
                     }
                 }
             }
@@ -47,17 +44,32 @@ namespace WormWorld
 
         }
 
-        public FoodHost(WorldLogic world, DataBase.ApplicationContext db)
+        public FoodHost(WorldLogic world, string foodString)
         {
-            List<(int, int)> food = new List<(int, int)>();
-            var users = db.FoodList.ToList();
-            string[] values = users[0].data.ToString().Split('^');
-            foreach (var one in values)
+            
+            _foodList = new ListDataGen().GenBehaviorListData(foodString);
+            
+            var opt = new DbContextOptionsBuilder<DataBase.ApplicationContext>()
+                .UseInMemoryDatabase(databaseName: "TestDB")
+                .Options;
+            using (DataBase.ApplicationContext db = new DataBase.ApplicationContext(opt))
             {
-                string[] XY = one.Split(',');
-                food.Add((Convert.ToInt32(XY[0]), Convert.ToInt32(XY[1])));
+                Entity data = new Entity { id = 1, data = new ListDataGen().GenBehaviorStringData(_foodList)};
+                db.FoodList.Add(data);
+                bool cantSave = true;
+                while (cantSave)
+                {
+                    try
+                    {
+                        db.SaveChanges();
+                        cantSave = false;
+                    }
+                    catch (Exception e)
+                    {
+                        data.id++;
+                    }
+                }
             }
-            _foodList = food;
             _world = world;
         }
 
