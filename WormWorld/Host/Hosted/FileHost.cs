@@ -8,14 +8,14 @@ using static System.Threading.Tasks.Task;
 
 namespace WormWorld
 {
-    public class FileHost : IHostedService
+    public class FileHost 
     {
-        private readonly WorldLogic _world;
+        public WorldLogic _world;
         private string Name = "/home/alex/Prog/Reshotka/WormWorld3/WormWorld/";
         //private const string Name = "D:/Prog/Reshotka/WormWorld3/Solution1/WormWorld/out.txt";
 
         
-        public FileHost(WorldLogic world, string also)
+        public FileHost(string also)
         {
             Name += also + "out.txt";
             if (!File.Exists(Name))
@@ -23,9 +23,8 @@ namespace WormWorld
                 File.Create(Name);
             }
             File.WriteAllText(Name, "Start:\n");
-            _world = world;
         }
-        public FileHost(WorldLogic world)
+        public FileHost()
         {
             Name += "out.txt";
             if (!File.Exists(Name))
@@ -33,7 +32,6 @@ namespace WormWorld
                 File.Create(Name);
             }
             File.WriteAllText(Name, "Start:\n");
-            _world = world;
         }
 
         public void MyWork()
@@ -47,7 +45,7 @@ namespace WormWorld
             File.AppendAllText(Name, "Total Worms = " + _world.ListOfWorm.GetList().Count);
         }
 
-        private void RunAsync()
+        public void StartWork()
         {
             _world.DayEnd += (_, _) =>
             {
@@ -58,16 +56,6 @@ namespace WormWorld
                 End();
             };
         }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            Run(RunAsync, cancellationToken);
-            return CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return CompletedTask;
-        }
+        
     }
 }

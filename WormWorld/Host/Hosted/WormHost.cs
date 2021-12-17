@@ -8,14 +8,14 @@ using static System.Threading.Tasks.Task;
 
 namespace WormWorld
 {
-    public class WormHost: IHostedService
+    public class WormHost
     {
-        private WorldLogic _world;
+        public WorldLogic _world;
         private WormLogic _logic = new();
 
-        public WormHost(WorldLogic world)
+        public WormHost()
         {
-            _world = world;
+           
         }
 
         private void DoSteps()
@@ -57,7 +57,7 @@ namespace WormWorld
             DoSteps();
             _world.EndDay();
         }
-        private void RunAsync()
+        public void StartWork()
         {
             _world.DayWormChanged += (_, _) =>
             {
@@ -65,16 +65,5 @@ namespace WormWorld
             };
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
-            Run(RunAsync, cancellationToken);
-            return CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return CompletedTask;
-        }
-        
     }
 }
